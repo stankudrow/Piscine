@@ -1,6 +1,6 @@
 # Бассейн/Pool/Piscine
 
-Зешения задач бассейна школы 42 (21 в России).
+Решения задач бассейна школы 42 (21 в России).
 
 The solutions to the problems of the pool of the school 42 (21 in Russia).
 
