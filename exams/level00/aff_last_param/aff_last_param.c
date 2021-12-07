@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   aff_last_param.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stanis <student.21-school.ru>              +#+  +:+       +#+        */
+/*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 11:11:40 by stanis            #+#    #+#             */
-/*   Updated: 2021/11/01 11:11:41 by stanis           ###   ########.fr       */
+/*   Created: 2021/12/07 01:07:36 by stanislav         #+#    #+#             */
+/*   Updated: 2021/12/07 01:07:37 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putstr(char *str)
+static void	ft_putstr(char *str)
 {
 	while (*str)
 		write(1, str++, 1);
