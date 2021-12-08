@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mainc01ex00.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stanis <student.21-school.ru>              +#+  +:+       +#+        */
+/*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/29 10:36:34 by stanis            #+#    #+#             */
-/*   Updated: 2021/10/29 10:40:38 by stanis           ###   ########.fr       */
+/*   Created: 2021/12/08 23:47:12 by stanislav         #+#    #+#             */
+/*   Updated: 2021/12/08 23:47:52 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ void	ft_putchar(char c)
 
 void	ft_putstr(char *str)
 {
-	if (str)
-		while (*str)
-			ft_putchar(*str++);
+	while (*str)
+		ft_putchar(*str++);
 }
 
 void	ft_putnbr(int nbr)
