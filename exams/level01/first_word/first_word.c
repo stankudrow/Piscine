@@ -6,7 +6,7 @@
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 00:53:38 by stanislav         #+#    #+#             */
-/*   Updated: 2021/12/07 01:03:46 by stanislav        ###   ########.fr       */
+/*   Updated: 2021/12/12 01:32:33 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static int	ft_isspace(int c)
 {
 	return ((c > 8 && c < 14) || c == 32);
 }
+
 static void	ft_putchar(int c)
 {
 	write(1, &c, 1);
