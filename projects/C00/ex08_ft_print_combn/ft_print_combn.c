@@ -6,7 +6,7 @@
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 23:46:39 by stanislav         #+#    #+#             */
-/*   Updated: 2021/12/08 23:46:40 by stanislav        ###   ########.fr       */
+/*   Updated: 2022/01/02 23:43:56 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 void	ft_putstr(char *str)
 {
-	if (str)
-		while (*str)
-			write(1, str++, 1);
+	while (*str)
+		write(1, str++, 1);
 }
 
-void	ft_print_combns(char *digits, char start, int depth, int indepth)
+static void	ft_print_combns(char *digits, char start, int depth, int indepth)
 {
 	if ((depth > 0) && (depth < 10))
 	{

@@ -6,25 +6,24 @@
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 23:45:48 by stanislav         #+#    #+#             */
-/*   Updated: 2021/12/08 23:45:49 by stanislav        ###   ########.fr       */
+/*   Updated: 2022/01/02 23:42:10 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+static void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-void	ft_putstr(char *str)
+static void	ft_putstr(char *str)
 {
-	if (str)
-		while (*str)
-			ft_putchar(*str++);
+	while (*str)
+		ft_putchar(*str++);
 }
 
-void	ft_putnbr(int nbr)
+static void	ft_putnbr(int nbr)
 {
 	if (nbr < 0)
 	{

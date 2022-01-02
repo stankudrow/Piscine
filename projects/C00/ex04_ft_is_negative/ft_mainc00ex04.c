@@ -6,7 +6,7 @@
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 23:45:21 by stanislav         #+#    #+#             */
-/*   Updated: 2021/12/08 23:45:21 by stanislav        ###   ########.fr       */
+/*   Updated: 2022/01/02 23:41:22 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,8 @@ void	ft_putchar(char c)
 
 void	ft_putstr(char *str)
 {
-	if (str)
-		while (*str)
-			ft_putchar(*str++);
+	while (*str)
+		ft_putchar(*str++);
 }
 
 void	ft_putnbr(int nbr)

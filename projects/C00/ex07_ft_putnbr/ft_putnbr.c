@@ -6,13 +6,13 @@
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 23:46:03 by stanislav         #+#    #+#             */
-/*   Updated: 2021/12/08 23:46:04 by stanislav        ###   ########.fr       */
+/*   Updated: 2022/01/02 23:42:52 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+static void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
