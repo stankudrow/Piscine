@@ -1,18 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   union.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/08 09:20:35 by stanislav         #+#    #+#             */
+/*   Updated: 2022/01/08 09:20:57 by stanislav        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
-
-int		check_doubles2(char *str, char c)
-{
-	int i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == c)
-			return (0);
-		i++;
-	}
-	return (1);
-}
 
 // find a character c in the first n bytes of a string s
 char	*ft_strnchr(char *s, char c, size_t n)
