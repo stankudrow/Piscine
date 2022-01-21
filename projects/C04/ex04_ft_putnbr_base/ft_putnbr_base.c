@@ -6,7 +6,7 @@
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 21:28:20 by stanislav         #+#    #+#             */
-/*   Updated: 2021/12/18 21:34:41 by stanislav        ###   ########.fr       */
+/*   Updated: 2021/12/19 12:14:18 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,15 @@ static size_t	ft_strlen(const char *s)
 
 static bool	ft_is_valid_base(const char *base)
 {
+	size_t	blen;
 	size_t	bci;
 	size_t	bcj;
 
-	if (!base || !*base || !*(base + 1))
+	blen = ft_strlen(base);
+	if (blen < 2 || blen > 36)
 		return (false);
 	bci = 0;
-	while (base[bci])
+	while (bci < blen)
 	{
 		if (!(base[bci] >= '0' && base[bci] <= '9') && \
 			!(base[bci] >= 'A' && base[bci] <= 'Z') && \
