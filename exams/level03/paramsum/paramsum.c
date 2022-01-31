@@ -6,7 +6,7 @@
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 20:28:07 by stanislav         #+#    #+#             */
-/*   Updated: 2022/01/31 20:28:07 by stanislav        ###   ########.fr       */
+/*   Updated: 2022/01/31 22:53:49 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	ft_putnbr(int nb)
 int	main(int ac, char **av)
 {
 	(void) av;
-
 	ft_putnbr(ac - 1);
 	ft_putchar('\n');
 	return (0);
