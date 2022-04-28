@@ -1,7 +1,7 @@
 NAME := ft_display_file
 
 CC := gcc
-CFLAGS := -Wall -Werror -Wextra -fsanitize=address
+CFLAGS := -Wall -Werror -Wextra
 
 HEADERS_DIR := headers
 SOURCES_DIR := sources
