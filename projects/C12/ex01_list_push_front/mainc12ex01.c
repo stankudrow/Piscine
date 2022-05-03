@@ -6,7 +6,7 @@
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 12:37:00 by stanislav         #+#    #+#             */
-/*   Updated: 2022/02/21 12:37:01 by stanislav        ###   ########.fr       */
+/*   Updated: 2022/05/02 11:34:16 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	ft_putstr(const char *str)
 int	main(void)
 {
 	t_list	*lst;
-	t_list	*node;
 
 	lst = NULL;
 	ft_list_push_front(&lst, "First into!");
