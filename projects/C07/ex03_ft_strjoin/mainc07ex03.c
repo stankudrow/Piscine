@@ -1,45 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mainc02ex09.c                                      :+:      :+:    :+:   */
+/*   mainc07ex03.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/21 17:09:01 by stanislav         #+#    #+#             */
-/*   Updated: 2022/06/21 17:09:01 by stanislav        ###   ########.fr       */
+/*   Created: 2022/06/21 15:44:09 by stanislav         #+#    #+#             */
+/*   Updated: 2022/06/21 15:44:09 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <unistd.h>
 
-char	*ft_strcapitalize(char *str);
+size_t	ft_strlen(const char *str);
+char	*ft_strjoin(int size, char **strs, char *sep);
 
-static size_t	ft_strlen(const char *str)
-{
-	size_t	len;
-
-	len = 0;
-	while (*str++)
-		len++;
-	return (len);
-}
-
-static void	ft_putstr(char *str)
+static void	ft_putstr(const char *str)
 {
 	write(1, str, ft_strlen(str));
 }
 
+/*
+	./a.out sep str1 str2 ... str_n
+	e. g. 1
+	./a.out "###" "Lol" Coucou Titi
+	res -> "Lol###Coucou###Titi"
+	e. g. 2
+	./a.out "###" "Lol"
+	res -> "Lol"
+	e. g. 3
+	./a.out "###""
+	res -> ""
+*/
 int	main(int argc, char **argv)
 {
-	char	*str;
+	char	*str_joined;
 
-	str = (char *) 0;
-	if (argc == 2)
+	if (argc > 2)
 	{
-		str = ft_strcapitalize(argv[1]);
-		ft_putstr("str = ");
-		ft_putstr(str);
-		ft_putstr("\n");
+		str_joined = ft_strjoin(argc - 2, argv + 2, argv[1]);
+		ft_putstr(str_joined);
+		free(str_joined);
 	}
+	ft_putstr("\n");
 	return (0);
 }

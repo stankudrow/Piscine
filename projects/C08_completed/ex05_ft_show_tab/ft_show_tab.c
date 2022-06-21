@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mainc07ex00.c                                      :+:      :+:    :+:   */
+/*   ft_show_tab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/21 15:28:12 by stanislav         #+#    #+#             */
-/*   Updated: 2022/06/21 15:28:12 by stanislav        ###   ########.fr       */
+/*   Created: 2022/06/21 17:14:19 by stanislav         #+#    #+#             */
+/*   Updated: 2022/06/21 17:14:34 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
+#include "ft_stock_str.h"
 
-size_t	ft_strlen(const char *str);
-char	*ft_strdup(char *src);
-
-static void	ft_putchar(char c)
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-static void	ft_putstr(char *str)
+size_t	ft_strlen(const char *str)
+{
+	size_t	len;
+
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
+}
+
+void	ft_putstr(const char *str)
 {
 	write(1, str, ft_strlen(str));
 }
 
-static void	ft_putnbr(int nbr)
+void	ft_putnbr(int nbr)
 {
 	if (nbr < 0)
 	{
@@ -43,25 +49,19 @@ static void	ft_putnbr(int nbr)
 	}
 }
 
-int	main(int argc, char **argv)
+void	ft_show_tab(struct s_stock_str *tab)
 {
-	int		ac;
-	char	*dst;
+	int	cnt;
 
-	if (argc > 1)
+	cnt = 0;
+	while (tab[cnt].str)
 	{
-		dst = NULL;
-		ac = 1;
-		while (ac < argc)
-		{
-			dst = ft_strdup(argv[ac]);
-			ft_putstr("argv[");
-			ft_putnbr(ac);
-			ft_putstr("] = ");
-			ft_putstr(dst);
-			ft_putstr("\n");
-			free(dst);
-			ac++;
-		}
+		ft_putstr(tab[cnt].str);
+		ft_putstr("\n");
+		ft_putnbr(tab[cnt].size);
+		ft_putstr("\n");
+		ft_putstr(tab[cnt].copy);
+		ft_putstr("\n");
+		cnt++;
 	}
 }

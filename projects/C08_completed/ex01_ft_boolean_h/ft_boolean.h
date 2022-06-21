@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_boolean.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/21 17:06:56 by stanislav         #+#    #+#             */
-/*   Updated: 2022/06/21 17:06:56 by stanislav        ###   ########.fr       */
+/*   Created: 2021/09/11 02:47:06 by stanislav         #+#    #+#             */
+/*   Updated: 2022/06/21 20:55:57 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dst, char *src, unsigned int n)
-{
-	unsigned int	i;
+#ifndef FT_BOOLEAN_H
+# define FT_BOOLEAN_H
 
-	i = 0;
-	while ((i < n) && src[i])
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
-		dst[i] = '\0';
-		i++;
-	}
-	return (dst);
-}
+# include <unistd.h>
+
+# define TRUE		1
+# define FALSE		0
+# define SUCCESS	0
+# define EVEN(nbr)	!((nbr) % 2)
+# define EVEN_MSG	"I have a pair number of arguments.\n"
+# define ODD_MSG	"I have an impair number of arguments.\n"
+
+typedef int	t_bool;
+
+#endif

@@ -5,18 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/18 21:42:06 by stanislav         #+#    #+#             */
-/*   Updated: 2021/12/18 21:42:09 by stanislav        ###   ########.fr       */
+/*   Created: 2022/06/21 15:27:58 by stanislav         #+#    #+#             */
+/*   Updated: 2022/06/21 15:29:06 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	char	*start;
 
-	start = str;
+	start = (char *)str;
 	while (*str)
 		str++;
 	return (str - start);
@@ -35,11 +35,9 @@ char	*ft_strcpy(char *dst, char *src)
 
 char	*ft_strdup(char *src)
 {
-	size_t	len;
 	char	*dst;
 
-	len = ft_strlen(src);
-	dst = malloc(sizeof(char) * (len + 1));
+	dst = malloc(sizeof(char) * (ft_strlen(src) + 1));
 	if (dst)
 		dst = ft_strcpy(dst, src);
 	return (dst);

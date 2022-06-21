@@ -1,45 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mainc02ex09.c                                      :+:      :+:    :+:   */
+/*   ft_stock_str.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/21 17:09:01 by stanislav         #+#    #+#             */
-/*   Updated: 2022/06/21 17:09:01 by stanislav        ###   ########.fr       */
+/*   Created: 2022/06/21 17:12:56 by stanislav         #+#    #+#             */
+/*   Updated: 2022/06/21 17:12:57 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#ifndef FT_STOCK_STR_H
+# define FT_STOCK_STR_H
 
-char	*ft_strcapitalize(char *str);
+# include <stdlib.h>
+# include <unistd.h>
 
-static size_t	ft_strlen(const char *str)
+typedef struct s_stock_str
 {
-	size_t	len;
-
-	len = 0;
-	while (*str++)
-		len++;
-	return (len);
-}
-
-static void	ft_putstr(char *str)
-{
-	write(1, str, ft_strlen(str));
-}
-
-int	main(int argc, char **argv)
-{
+	int		size;
 	char	*str;
+	char	*copy;
+}	t_stock_str;
 
-	str = (char *) 0;
-	if (argc == 2)
-	{
-		str = ft_strcapitalize(argv[1]);
-		ft_putstr("str = ");
-		ft_putstr(str);
-		ft_putstr("\n");
-	}
-	return (0);
-}
+void				ft_show_tab(struct s_stock_str *tab);
+struct s_stock_str	*ft_strs_to_tab(int ac, char **av);
+
+#endif

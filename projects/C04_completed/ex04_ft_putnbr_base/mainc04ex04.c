@@ -1,45 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mainc02ex09.c                                      :+:      :+:    :+:   */
+/*   mainc04ex04.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/21 17:09:01 by stanislav         #+#    #+#             */
-/*   Updated: 2022/06/21 17:09:01 by stanislav        ###   ########.fr       */
+/*   Created: 2021/12/18 21:28:14 by stanislav         #+#    #+#             */
+/*   Updated: 2022/06/21 17:03:04 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-char	*ft_strcapitalize(char *str);
+void	ft_putnbr_base(int nbr, char *base);
 
-static size_t	ft_strlen(const char *str)
+static int	ft_atoi(char *str)
 {
-	size_t	len;
+	int	num;
+	int	sign;
 
-	len = 0;
-	while (*str++)
-		len++;
-	return (len);
-}
-
-static void	ft_putstr(char *str)
-{
-	write(1, str, ft_strlen(str));
+	sign = 1;
+	num = 0;
+	while ((*str > 8 && *str < 14) || *str == 32)
+		str++;
+	while (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign = -sign;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		num = 10 * num + (*str - '0');
+		str++;
+	}
+	return (sign * num);
 }
 
 int	main(int argc, char **argv)
 {
-	char	*str;
-
-	str = (char *) 0;
-	if (argc == 2)
+	if (argc == 3)
 	{
-		str = ft_strcapitalize(argv[1]);
-		ft_putstr("str = ");
-		ft_putstr(str);
-		ft_putstr("\n");
+		ft_putnbr_base(ft_atoi(argv[1]), argv[2]);
+		write(1, "\n", 1);
 	}
 	return (0);
 }
