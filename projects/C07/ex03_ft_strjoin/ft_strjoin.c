@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/21 15:44:15 by stanislav         #+#    #+#             */
-/*   Updated: 2022/06/21 15:44:15 by stanislav        ###   ########.fr       */
+/*   Created: 2022/06/21 16:51:40 by stanislav         #+#    #+#             */
+/*   Updated: 2022/06/21 16:51:40 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*ft_strjoin_sep(const char *dst, const char *src, const char *sep)
 	return (newstr);
 }
 
-/* a hack included */
+/* hacks included */
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
 	char	*str;
