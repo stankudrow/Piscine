@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strs_to_tab.c                                   :+:      :+:    :+:   */
+/*   mainc08ex05.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/22 02:24:34 by stanislav         #+#    #+#             */
-/*   Updated: 2022/01/22 02:40:49 by stanislav        ###   ########.fr       */
+/*   Created: 2022/01/22 02:46:44 by stanislav         #+#    #+#             */
+/*   Updated: 2022/06/21 17:13:49 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stock_str.h"
 
-static size_t	ft_strlen(const char *str)
-{
-	size_t	len;
-
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
-}
+size_t	ft_strlen(const char *str);
 
 static char	*ft_strcpy(char *dst, const char *src)
 {
@@ -64,4 +56,30 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 		tab[argc].str = NULL;
 	}
 	return (tab);
+}
+
+void	ft_free_tab(struct s_stock_str *tab)
+{
+	int	cnt;
+
+	cnt = 0;
+	while (tab[cnt].str)
+	{
+		free(tab[cnt].copy);
+		cnt++;
+	}
+	free(tab);
+}
+
+int	main(int argc, char **argv)
+{
+	t_stock_str	*tab;
+
+	if (argc > 1)
+	{
+		tab = ft_strs_to_tab(argc, argv);
+		ft_show_tab(tab);
+		ft_free_tab(tab);
+	}
+	return (0);
 }

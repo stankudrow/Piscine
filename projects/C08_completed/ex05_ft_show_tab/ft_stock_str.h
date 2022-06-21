@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_stock_str.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/11 02:47:06 by stanislav         #+#    #+#             */
-/*   Updated: 2022/01/22 02:18:09 by stanislav        ###   ########.fr       */
+/*   Created: 2022/06/21 17:12:56 by stanislav         #+#    #+#             */
+/*   Updated: 2022/06/21 17:12:57 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
+#ifndef FT_STOCK_STR_H
+# define FT_STOCK_STR_H
 
+# include <stdlib.h>
 # include <unistd.h>
 
-# define TRUE		1
-# define FALSE		0
-# define SUCCESS	0
-# define EVEN(nbr)	!((nbr) % 2)
-# define EVEN_MSG	"I have a pair number of arguments.\n"
-# define ODD_MSG	"I have an impair number of arguments.\n"
+typedef struct s_stock_str
+{
+	int		size;
+	char	*str;
+	char	*copy;
+}	t_stock_str;
 
-typedef int	t_bool;
+void				ft_show_tab(struct s_stock_str *tab);
+struct s_stock_str	*ft_strs_to_tab(int ac, char **av);
 
 #endif

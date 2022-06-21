@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mainc08ex04.c                                      :+:      :+:    :+:   */
+/*   ft_show_tab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/14 15:01:24 by stanislav         #+#    #+#             */
-/*   Updated: 2022/01/22 02:49:01 by stanislav        ###   ########.fr       */
+/*   Created: 2022/06/21 17:14:19 by stanislav         #+#    #+#             */
+/*   Updated: 2022/06/21 17:14:34 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,19 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
+size_t	ft_strlen(const char *str)
+{
+	size_t	len;
+
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
+}
+
 void	ft_putstr(const char *str)
 {
-	while (*str)
-		ft_putchar(*str++);
+	write(1, str, ft_strlen(str));
 }
 
 void	ft_putnbr(int nbr)
@@ -55,30 +64,4 @@ void	ft_show_tab(struct s_stock_str *tab)
 		ft_putstr("\n");
 		cnt++;
 	}
-}
-
-void	ft_free_tab(struct s_stock_str *tab)
-{
-	int	cnt;
-
-	cnt = 0;
-	while (tab[cnt].str)
-	{
-		free(tab[cnt].copy);
-		cnt++;
-	}
-	free(tab);
-}
-
-int	main(int argc, char **argv)
-{
-	t_stock_str	*tab;
-
-	if (argc > 1)
-	{
-		tab = ft_strs_to_tab(argc, argv);
-		ft_show_tab(tab);
-		ft_free_tab(tab);
-	}
-	return (0);
 }
