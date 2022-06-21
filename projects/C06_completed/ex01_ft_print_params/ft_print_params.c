@@ -5,17 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/09 00:33:51 by stanislav         #+#    #+#             */
-/*   Updated: 2021/12/09 00:33:51 by stanislav        ###   ########.fr       */
+/*   Created: 2022/06/21 16:56:44 by stanislav         #+#    #+#             */
+/*   Updated: 2022/06/21 16:56:45 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putstr(char *str)
+static size_t	ft_strlen(const char *str)
 {
-	while (*str)
-		write(1, str++, 1);
+	size_t	len;
+
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
+}
+
+static void	ft_putstr(const char *str)
+{
+	write(1, str, ft_strlen(str));
 }
 
 int	main(int argc, char **argv)
