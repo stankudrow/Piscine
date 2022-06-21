@@ -1,48 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mainc04ex04.c                                      :+:      :+:    :+:   */
+/*   mainc04ex03.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/18 21:28:14 by stanislav         #+#    #+#             */
-/*   Updated: 2022/01/22 00:56:59 by stanislav        ###   ########.fr       */
+/*   Created: 2022/06/21 17:02:42 by stanislav         #+#    #+#             */
+/*   Updated: 2022/06/21 17:02:43 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putnbr_base(int nbr, char *base);
+int	ft_atoi(char *str);
 
-int	ft_atoi(char *str)
+static void	ft_putchar(char c)
 {
-	int	num;
-	int	sign;
+	write(1, &c, 1);
+}
 
-	sign = 1;
-	num = 0;
-	while ((*str > 8 && *str < 14) || *str == 32)
-		str++;
-	while (*str == '-' || *str == '+')
+static void	ft_putnbr(int nbr)
+{
+	if (nbr < 0)
 	{
-		if (*str == '-')
-			sign = -sign;
-		str++;
+		ft_putchar('-');
+		if (nbr <= -10)
+			ft_putnbr(nbr / -10);
+		ft_putchar(-(nbr % 10) + '0');
 	}
-	while (*str >= '0' && *str <= '9')
+	else
 	{
-		num = 10 * num + (*str - '0');
-		str++;
+		if (nbr >= 10)
+			ft_putnbr(nbr / 10);
+		ft_putchar((nbr % 10) + '0');
 	}
-	return (sign * num);
 }
 
 int	main(int argc, char **argv)
 {
-	if (argc == 3)
+	if (argc == 2)
 	{
-		ft_putnbr_base(ft_atoi(argv[1]), argv[2]);
-		write(1, "\n", 1);
+		ft_putnbr(ft_atoi(argv[1]));
+		ft_putchar('\n');
 	}
 	return (0);
 }

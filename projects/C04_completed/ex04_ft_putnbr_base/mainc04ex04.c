@@ -1,47 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mainc04ex03.c                                      :+:      :+:    :+:   */
+/*   mainc04ex04.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/07 00:42:09 by stanislav         #+#    #+#             */
-/*   Updated: 2021/12/07 00:47:23 by stanislav        ###   ########.fr       */
+/*   Created: 2021/12/18 21:28:14 by stanislav         #+#    #+#             */
+/*   Updated: 2022/06/21 17:03:04 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_atoi(char *str);
+void	ft_putnbr_base(int nbr, char *base);
 
-void	ft_putchar(char c)
+static int	ft_atoi(char *str)
 {
-	write(1, &c, 1);
-}
+	int	num;
+	int	sign;
 
-void	ft_putnbr(int nbr)
-{
-	if (nbr < 0)
+	sign = 1;
+	num = 0;
+	while ((*str > 8 && *str < 14) || *str == 32)
+		str++;
+	while (*str == '-' || *str == '+')
 	{
-		ft_putchar('-');
-		if (nbr <= -10)
-			ft_putnbr(nbr / -10);
-		ft_putchar(-(nbr % 10) + '0');
+		if (*str == '-')
+			sign = -sign;
+		str++;
 	}
-	else
+	while (*str >= '0' && *str <= '9')
 	{
-		if (nbr >= 10)
-			ft_putnbr(nbr / 10);
-		ft_putchar((nbr % 10) + '0');
+		num = 10 * num + (*str - '0');
+		str++;
 	}
+	return (sign * num);
 }
 
 int	main(int argc, char **argv)
 {
-	if (argc == 2)
+	if (argc == 3)
 	{
-		ft_putnbr(ft_atoi(argv[1]));
-		ft_putchar('\n');
+		ft_putnbr_base(ft_atoi(argv[1]), argv[2]);
+		write(1, "\n", 1);
 	}
 	return (0);
 }

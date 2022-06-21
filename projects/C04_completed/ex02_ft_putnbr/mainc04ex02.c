@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/07 00:41:44 by stanislav         #+#    #+#             */
-/*   Updated: 2021/12/07 00:45:28 by stanislav        ###   ########.fr       */
+/*   Created: 2022/06/21 17:02:11 by stanislav         #+#    #+#             */
+/*   Updated: 2022/06/21 17:02:11 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@ void	ft_putchar(char c);
 
 void	ft_putnbr(int nb);
 
-int	ft_atoi(char *str)
+static int	ft_atoi(char *str)
 {
 	int	num;
 	int	sign;

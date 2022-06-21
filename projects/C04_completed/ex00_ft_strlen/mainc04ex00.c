@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/07 00:39:27 by stanislav         #+#    #+#             */
-/*   Updated: 2021/12/07 00:44:18 by stanislav        ###   ########.fr       */
+/*   Created: 2022/06/21 17:00:44 by stanislav         #+#    #+#             */
+/*   Updated: 2022/06/21 17:00:44 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 int	ft_strlen(char *str);
 
-void	ft_putchar(char c)
+static void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-void	ft_putstr(char *str)
+static void	ft_putstr(char *str)
 {
 	write(1, str, ft_strlen(str));
 }
 
-void	ft_putnbr(int nbr)
+static void	ft_putnbr(int nbr)
 {
 	if (nbr < 0)
 	{
