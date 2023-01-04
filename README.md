@@ -1,13 +1,10 @@
-# Бассейн/Pool/Piscine
-
-Решения задач бассейна школы 42 (21 в России).
+# Pool/Piscine
 
 The solutions to the problems of the pool of the school 42 (21 in Russia).
 
 Les solutions aux problèmes de la piscine de l'école 42 (21 en Russie).
 
-
-# Ссылки/References/Références
+## References/Références
 
 * https://github.com/evgenkarlson/COMPLETED_PISCINE_C
 
