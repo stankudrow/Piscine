@@ -1,42 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_push_front.c                               :+:      :+:    :+:   */
+/*   ft_list_clear.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 18:48:28 by stanislav         #+#    #+#             */
-/*   Updated: 2023/08/30 18:48:28 by stanislav        ###   ########.fr       */
+/*   Created: 2023/08/30 20:38:24 by stanislav         #+#    #+#             */
+/*   Updated: 2023/08/30 20:38:24 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "ft_list.h"
 
-t_list	*ft_create_elem(void *data)
+void	ft_list_clear(t_list *begin_list, void (*free_fct)(void *))
 {
-	t_list	*node;
+	t_list	*prev;
 
-	node = malloc(sizeof(t_list));
-	if (node)
+	prev = begin_list;
+	while (begin_list)
 	{
-		node->data = data;
-		node->next = NULL;
-	}
-	return (node);
-}
-
-void	ft_list_push_front(t_list **begin_list, void *data)
-{
-	t_list	*node;
-
-	if (begin_list)
-	{
-		node = ft_create_elem(data);
-		if (node)
-		{
-			node->next = *begin_list;
-			*begin_list = node;
-		}
+		begin_list = begin_list->next;
+		free_fct(prev);
+		prev = begin_list;
 	}
 }

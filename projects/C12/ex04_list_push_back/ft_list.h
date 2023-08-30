@@ -1,42 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_push_front.c                               :+:      :+:    :+:   */
+/*   ft_list.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 18:48:28 by stanislav         #+#    #+#             */
-/*   Updated: 2023/08/30 18:48:28 by stanislav        ###   ########.fr       */
+/*   Created: 2022/02/21 12:06:28 by stanislav         #+#    #+#             */
+/*   Updated: 2022/02/21 12:14:29 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "ft_list.h"
+#ifndef FT_LIST_H
+# define FT_LIST_H
 
-t_list	*ft_create_elem(void *data)
+typedef struct s_list
 {
-	t_list	*node;
+	void			*data;
+	struct s_list	*next;
+}	t_list;
 
-	node = malloc(sizeof(t_list));
-	if (node)
-	{
-		node->data = data;
-		node->next = NULL;
-	}
-	return (node);
-}
-
-void	ft_list_push_front(t_list **begin_list, void *data)
-{
-	t_list	*node;
-
-	if (begin_list)
-	{
-		node = ft_create_elem(data);
-		if (node)
-		{
-			node->next = *begin_list;
-			*begin_list = node;
-		}
-	}
-}
+#endif

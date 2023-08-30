@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mainc12ex01.c                                      :+:      :+:    :+:   */
+/*   mainc12ex05.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 19:02:12 by stanislav         #+#    #+#             */
-/*   Updated: 2023/08/30 19:02:13 by stanislav        ###   ########.fr       */
+/*   Created: 2023/08/30 20:35:32 by stanislav         #+#    #+#             */
+/*   Updated: 2023/08/30 20:35:32 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include <unistd.h>
 #include "ft_list.h"
 
-t_list	*ft_create_elem(void *data);
-void	ft_list_push_front(t_list **begin_list, void *data);
+void	ft_list_clear(t_list *begin_list, void (*free_fct)(void *));
+t_list	*ft_list_push_strs(int size, char **strs);
 
 size_t	ft_strlen(const char *str)
 {
@@ -33,16 +33,23 @@ void	ft_putstrln(const char *str)
 	write(1, "\n", 1);
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_list	*lst;
+	t_list	*node;
 
-	lst = NULL;
-	ft_list_push_front(&lst, "Last!");
-	ft_list_push_front(&lst, "First!");
-	ft_putstrln(lst->data);
-	ft_putstrln(lst->next->data);
-	free(lst->next);
-	free(lst);
-	return (0);
+	if (argc > 1)
+	{
+		lst = ft_list_push_strs(argc - 1, argv + 1);
+		if (lst)
+		{
+			node = lst;
+			while (node)
+			{
+				ft_putstrln((char *)(node->data));
+				node = node->next;
+			}
+			ft_list_clear(lst, free);
+		}
+	}
 }

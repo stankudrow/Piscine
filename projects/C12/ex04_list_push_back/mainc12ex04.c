@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mainc12ex01.c                                      :+:      :+:    :+:   */
+/*   mainc12ex04.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 19:02:12 by stanislav         #+#    #+#             */
-/*   Updated: 2023/08/30 19:02:13 by stanislav        ###   ########.fr       */
+/*   Created: 2022/02/21 12:37:00 by stanislav         #+#    #+#             */
+/*   Updated: 2023/08/30 19:01:02 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "ft_list.h"
 
 t_list	*ft_create_elem(void *data);
-void	ft_list_push_front(t_list **begin_list, void *data);
+void	ft_list_push_back(t_list **begin_list, void *data);
 
 size_t	ft_strlen(const char *str)
 {
@@ -38,8 +38,8 @@ int	main(void)
 	t_list	*lst;
 
 	lst = NULL;
-	ft_list_push_front(&lst, "Last!");
-	ft_list_push_front(&lst, "First!");
+	ft_list_push_back(&lst, "First!");
+	ft_list_push_back(&lst, "Last!");
 	ft_putstrln(lst->data);
 	ft_putstrln(lst->next->data);
 	free(lst->next);
