@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/28 09:24:53 by stanislav         #+#    #+#             */
-/*   Updated: 2022/04/28 10:22:50 by stanislav        ###   ########.fr       */
+/*   Created: 2023/08/30 12:05:23 by stanislav         #+#    #+#             */
+/*   Updated: 2023/08/30 12:05:24 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,5 @@ void	ft_putstr(const char *str)
 void	ft_putendl(const char *str)
 {
 	ft_putstr(str);
-	write(1, "\n", 1);
+	ft_putstr("\n");
 }

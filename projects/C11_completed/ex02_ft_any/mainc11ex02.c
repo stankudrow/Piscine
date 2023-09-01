@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_string_tab.c                               :+:      :+:    :+:   */
+/*   mainc11ex02.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/28 08:49:46 by stanislav         #+#    #+#             */
-/*   Updated: 2022/04/28 08:52:08 by stanislav        ###   ########.fr       */
+/*   Created: 2023/09/01 12:23:16 by stanislav         #+#    #+#             */
+/*   Updated: 2023/09/01 12:25:36 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_sort_string_tab(char **tab)
-{
-	char	*tmp;
-	int		i;
-	int		j;
-	int		length;
+#include <stdio.h>
 
-	length = 0;
-	while (tab[length])
-		length++;
-	i = 0;
-	while (i < (length - 1))
+int	ft_any(char **tab, int (*f)(char *));
+
+// the Norm sucks
+int	starts_with_a(char *str)
+{
+	return (str[0] == 'A');
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc > 1)
 	{
-		j = 0;
-		while (tab[i][j] == tab[i + 1][j])
-			j++;
-		if (tab[i][j] > tab[i + 1][j])
-		{
-			tmp = tab[i];
-			tab[i] = tab[i + 1];
-			tab[i + 1] = tmp;
-			i = -1;
-		}
-		i++;
+		printf("Starting with 'A'\n");
+		printf("If any? %d\n", ft_any(argv + 1, starts_with_a));
 	}
+	return (0);
 }

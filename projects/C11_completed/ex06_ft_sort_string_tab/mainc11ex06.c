@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   mainc11ex06.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/28 08:37:39 by stanislav         #+#    #+#             */
-/*   Updated: 2022/04/28 08:38:40 by stanislav        ###   ########.fr       */
+/*   Created: 2023/09/01 13:12:31 by stanislav         #+#    #+#             */
+/*   Updated: 2023/09/01 13:12:32 by stanislav        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_count_if(char **tab, int (*f)(char *))
-{
-	int	count;
-	int	icnt;
-	int	rnzcnt;
+#include <stdio.h>
 
-	rnzcnt = 0;
-	icnt = 0;
-	while (tab[icnt])
+void	ft_sort_string_tab(char **tab);
+
+int	main(int argc, char **argv)
+{
+	int	index;
+
+	if (argc > 1)
 	{
-		if ((*f)(tab[icnt]) != 0)
-			rnzcnt++;
-		icnt++;
+		ft_sort_string_tab(argv + 1);
+		index = 1;
+		while (argv[index])
+		{
+			printf("%s\n", argv[index]);
+			index++;
+		}
 	}
-	return (rnzcnt);
+	return (0);
 }
