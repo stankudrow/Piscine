@@ -1,0 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mainc12ex00.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stanislav <student.21-school.ru>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/21 12:37:33 by stanislav         #+#    #+#             */
+/*   Updated: 2023/09/05 11:04:37 by stanislav        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdlib.h>
+#include "ft_list.h"
+
+t_list	*ft_create_elem(void *data);
+int		ft_strlen(const char *str);
+void	ft_putstr(const char *str);
+
+int	main(void)
+{
+	t_list	*node;
+
+	node = ft_create_elem("Hello");
+	if (node)
+	{
+		ft_putstr(node->data);
+		free(node);
+	}
+	return (0);
+}
